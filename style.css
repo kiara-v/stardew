@@ -1,0 +1,521 @@
+/* Mobile First CSS */
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/* Texts - Start */
+h1,
+h2,
+button {
+    font-family: 'Kelly Slab', cursive;
+    color: #441600;
+}
+
+h1 { font-size: 4rem; }
+h2 { font-size: 2rem; }
+
+label,
+p,
+a,
+select,
+input,
+textarea,
+span,
+legend {
+    font-family: 'Kelly Slab', cursive;
+    font-size: .9rem;
+    color: #441600;
+}
+
+a { text-decoration: none; }
+
+.input-style {
+    width: 100%;
+    padding: 5px; 
+    background-color: #FEFBCC;
+    border: 3px outset #D57A05;
+    border-radius: 5px;
+    -webkit-box-shadow: -3px 3px 1px rgba(0, 0, 0, .2);
+            box-shadow: -3px 3px 1px rgba(0, 0, 0, .2);
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+
+input:focus,
+textarea:focus { outline: none !important; }
+/* Texts - End */
+
+/* Pre Styles - Start */
+.d-flex { display: -webkit-box; display: -ms-flexbox; display: flex; }
+.justify-center { -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+.justify-start { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+.justify-end { -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; }
+.justify-around { -ms-flex-pack: distribute; justify-content: space-around; }
+.justify-between { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+.justify-evenly { -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
+.align-center { -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.align-start { -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; }
+.flex-row { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
+.flex-col { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.flex-wrap { -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+.mb-20 { margin-bottom: 20px; }
+/* Pre Styles - End */
+
+/* Body & Main - Start */
+body { background-color: #FAE58D; }
+
+main {
+    height: 100%;
+    max-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 1px;
+            perspective: 1px;
+    -webkit-perspective-origin: center top;
+            perspective-origin: center top;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+/* Body & Main - End */
+
+/* Header - Start */
+header {
+    z-index: 9;
+    display: block;
+    position: fixed;
+    top: 0;
+    padding: 30px;
+}
+
+.logo-icon,
+.menu-icon {
+    height: 40px;
+    cursor: pointer;
+}
+
+.dropdown-nav {
+    position: fixed;
+    top: 77px;
+    right: 30px;
+    width: 200px;
+    height: 205px;
+    border: 10px solid #FAE58D;
+    border-radius: 10px;
+    -o-border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 20 stretch;
+    border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 20 stretch;
+    background-color: #FAE58D;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: height 300ms, opacity 300ms ease-in-out;
+    -o-transition: height 300ms, opacity 300ms ease-in-out;
+    transition: height 300ms, opacity 300ms ease-in-out;
+    overflow: hidden;
+}
+
+.dropdown-nav img {
+    width: 30px;
+    margin-right: 15px
+}
+
+.dropdown-nav a {
+    font-size: 1.1rem;
+    padding: 10px 12px 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-shadow: 0px 2px 1px #d5864f;
+}
+
+.closed {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+/* Header - End */
+
+/* Hero - Start */
+#hero {
+    position: relative;
+    width: 100vw;
+    height: 110vh;
+    min-height: 760px;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+}
+
+.hero-bg {
+    z-index: -1;
+    top: 0;
+    display: block;
+    position: absolute;
+    background-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/hero-background.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    min-height: 700px;
+    -webkit-transform-origin: center top;
+        -ms-transform-origin: center top;
+            transform-origin: center top;
+    -webkit-transform: translateZ(-1px) scale(2);
+            transform: translateZ(-1px) scale(2);
+}
+
+#hero .title {
+    position: absolute;
+    top: 20vh;
+    left: 0;
+    right: 0;
+    width: 80%;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+#hero .hero-img {
+    position: absolute;
+    bottom: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center bottom;
+    object-position: center bottom;
+    width: 100%;
+    height: 100%;
+    max-height: 35%;
+} 
+/* Hero - End */
+
+/* Locations - Start */
+#locations,
+#villagers {
+    background-color: #FAE58D;
+    width: 100vw;
+    height: 100%;
+    padding: 50px 30px;
+}
+
+#locations h2,
+#villagers h2 {
+    text-align: center;
+}
+
+#locations .location-box {
+    position: relative;
+    width: 100%;
+    min-width: 155px;
+    -ms-flex-preferred-size: 46%;
+        flex-basis: 46%;
+    border: 10px solid #FAE58D;
+    border-radius: 10px;
+    -o-border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 13 stretch;
+    border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 13 stretch;
+    margin: 5px;
+}
+
+#locations div img,
+#villagers div img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center center;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+}
+
+#locations div:nth-child(1) img {
+    -o-object-position: left center;
+    object-position: left center;
+}
+
+#locations .location-box p,
+.border p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 2;
+    border: 6px solid #FAE58D;
+    -o-border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/scrollborder.png) 24 repeat;
+    border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/scrollborder.png) 24 fill repeat;
+    border-image-width: 24px;
+    border-image-outset: 6px;
+    padding: 0px 18px 0px 18px;
+    text-shadow: 0px 2px 1px #d5864f;
+    text-align: center;
+}
+
+#locations .location-box p {
+    bottom: 10px;
+    margin: 0 auto;
+    width: 87%;
+    max-width: 165px;
+}
+
+.border p {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 34px;
+    font-size: 1.5rem;
+    width: 200px;
+
+}
+/* Locations - End */
+
+/* Map - Start */
+#map {
+    z-index: -2;
+    display: block;
+    background-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/pelican-town.png);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-height: 700px;
+    -webkit-transform-origin: center top;
+        -ms-transform-origin: center top;
+            transform-origin: center top;
+    -webkit-transform: translateZ(-1px) scale(2);
+            transform: translateZ(-1px) scale(2);
+    
+}
+
+.border {
+    position: absolute;
+    border: 10px solid #FAE58D;
+    border-radius: 10px;
+    -o-border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 15 stretch;
+    border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 15 stretch;
+    width: 101vw;
+    height: 102vh;
+    min-height: 707px;
+    display: block;
+    left: -2px;
+    right: 0;
+    margin-top: -3px;
+}
+/* Map - End */
+
+/* Villagers - Start */
+#villagers .villager-box {
+    width: 100%;
+    max-width: 145px;
+    min-width: 90px;
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+    margin: 5px 5px 30px;
+}
+
+#villagers .villager-box p {
+    display: block;
+    position: relative;
+    z-index: 1;
+    color: #801701;
+    background-color: #FEFBCC;
+    border: 6px solid #FAE58D;
+    border-radius: 10px;
+    -o-border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 13 stretch;
+    border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 13 stretch;
+    padding: 5px;
+    text-align: center;
+    margin: -20px auto 0;
+    text-shadow: 0px 2px 1px #d5864f;
+}
+/* Villagers - End */
+
+/* Contact - Start */
+#contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/section-cover.png);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    width: 100vw;
+    height: 100%;
+}
+
+#contact form {
+    border: 10px solid #FAE58D;
+    border-radius: 10px;
+    -o-border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 15 stretch;
+    border-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/border.png) 15 stretch;
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: #FAE58D;
+    padding: 30px;
+    margin: 60px 30px;
+}
+
+#contact > form > fieldset > div > img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+#contact > form > fieldset { border: none; }
+
+#contact form ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+#submitBtn {
+    width: 100px;
+    height: 41px;
+    padding: 10px;
+    background-image: url(https://res.cloudinary.com/dqfgwgif9/image/upload/v1645661048/stardew-valley/button.png);
+    background-color: #FAE58D;
+    background-size: contain;
+    background-position: top left;
+    background-repeat: no-repeat;
+    border: none;
+    text-align: left;
+    padding-left: 23px;
+    font-size: 14px;
+    cursor: pointer;
+    text-shadow: 0px 2px 1px #d5864f;
+}
+/* Contact - End */
+
+/* Footer - Start */
+#footerStyle > div > div > a > img {
+    height: 30px;
+    margin: 0 3px;
+}
+
+#footerStyle { padding: 30px 50px; }
+#footerStyle > div > img:nth-child(1) { width: 170px; }
+#footerStyle > div > img:nth-child(2) { width: 250px; }
+/* Footer - End */
+
+/* Responsive - Start */
+@media only screen and (min-width: 1015px) {
+    /* Hero */
+    #hero { min-height: 820px; }
+    #hero .title { top: 24vh; }
+
+    #hero .hero-img {
+        height: auto;
+        max-height: none;
+    }
+
+    /* Locations & Villagers */
+    #locations,
+    #villagers { padding: 70px 30px; }
+
+    #locations h2,
+    #villagers h2 { font-size: 2rem; }
+
+    #locations .location-box {
+        -ms-flex-preferred-size: 23.2%;
+            flex-basis: 23.2%;
+    }
+
+    #locations .location-box:nth-child(1) {
+        -ms-flex-preferred-size: 55%;
+            flex-basis: 55%;
+    }
+
+    #locations .location-box:nth-child(2) {
+        -ms-flex-preferred-size: 40%;
+            flex-basis: 40%;
+    }
+
+    #villagers .villager-box {
+        max-width: none;
+        -ms-flex-preferred-size: 15%;
+            flex-basis: 15%;
+    }
+
+    /* Map */
+    #map {
+        width: 90vw;
+        margin: 0 auto;
+    }
+    
+    .border {
+        width: 91vw;
+        margin: 0 auto;
+        height: 101vh;
+        display: block;
+        left: 0;
+        right: 0;
+    }
+
+    /* Footer */
+    #footerStyle,
+    #footerStyle > div {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+    }
+
+    #footerStyle {
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
+
+    #footerStyle > div:nth-child(1) > img,
+    #footerStyle > div:nth-child(2) > div {
+        margin-bottom: 0;
+    }
+
+    #footerStyle > div:nth-child(1) > img:nth-child(1) {
+        margin-right: 15px;
+        width: 150px;
+    }
+
+    #footerStyle > div:nth-child(1) > img:nth-child(2) {
+        width: 210px;
+        margin-top: 10px;
+    }
+
+    #footerStyle > div:nth-child(2) > a > img {
+        height: 35px;
+        margin-left: 15px;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    /* Hero */
+    #hero .title { max-width: 550px; }
+}
+
+
+@media only screen and (max-width: 390px) {
+    /* Locations */
+    #locations .location-box {
+        flex-basis: 100%;
+        height: 280px;
+        min-width: auto;
+    }
+}
+/* Responsive - End */

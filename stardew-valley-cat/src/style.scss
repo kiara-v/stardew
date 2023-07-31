@@ -1,0 +1,236 @@
+// Vars
+
+$grid-columns: 16;
+$grid-rows: 16;
+
+// Cat
+$cat-grey: #807267;
+$cat-grey-dark: #5D5146;
+$cat-outline: #3B2B26;
+$cat-features: #D8D1B6;
+$cat-snoot: #C46D86;
+$cat-shadow: #929292;
+
+// Heart Bubble
+$bubble-outline: #3F3F3F;
+$bubble-shadow: #CCCCCC;
+$heart-red: #FF515D;
+$heart-red-dark: #9E3546;
+$heart-yellow: #FFCD59;
+$heart-orange: #FF8859;
+
+body {
+	background-color: #f5f5f5;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.bubble {
+	position: absolute;
+	top: 0;
+	width: 250px;
+	height: 250px;
+	display: grid;
+  grid-template-rows: repeat($grid-rows, 1fr);
+  grid-template-columns: repeat($grid-columns, 1fr);
+	opacity: 0;
+	
+	&-outline {
+		background-color: $bubble-outline;
+	}
+	
+	&-shadow {
+		background-color: $bubble-shadow;
+	}
+
+	&-red {
+		background-color: $heart-red;
+	}
+	
+	&-red-dark {
+		background-color: $heart-red-dark;
+	}
+	
+	&-yellow {
+		background-color: $heart-yellow;
+	}
+
+	&-orange {
+		background-color: $heart-orange;
+	}
+}
+
+
+.bubble-wrap.animate .bubble-1 {	
+	animation: showBubble1 linear .75s;
+}
+
+.bubble-wrap.animate .bubble-2 {
+	animation: showBubble2 linear .75s;
+}
+
+.bubble-wrap.animate .bubble-3 {
+	animation: showBubble3 linear .75s;
+}
+
+.bubble-wrap.animate .bubble-4 {
+	animation: showBubble4 linear .75s;
+}
+
+.cat-wrap, .bubble-wrap {
+	position: relative;
+	width: 250px;
+	height: 250px;
+	cursor: pointer;
+	overflow: hidden;
+	margin: 1rem 0;
+}
+
+.cat {
+	position: absolute;
+	top: 0;
+  display: grid;
+  grid-template-rows: repeat($grid-rows, 1fr);
+  grid-template-columns: repeat($grid-columns, 1fr);
+	height: 100%;
+	width: 100%;
+	
+	&-1 {
+		animation: showHide linear 3s infinite;
+	}
+
+	&-2 {
+		animation: showHide linear 3s infinite reverse;
+	}
+	
+	&-fur {
+		background: $cat-grey;
+	}
+
+	&-fur-dark {
+		background: $cat-grey-dark;
+	}
+
+	&-outline {
+		background: $cat-outline;
+	}
+
+	&-fur-light {
+		background: $cat-features;
+	}
+
+	&-shadow {
+		background: $cat-shadow;
+	}
+
+	&-nose {
+		background: $cat-snoot;
+	}
+
+}
+
+
+@keyframes showHide {
+	0% {
+		opacity: 100%;
+	}
+	
+	50% {
+		opacity: 100%
+	}
+	
+	51% {
+			opacity: 0%
+	}
+	
+	100% {
+			opacity: 0%
+	}
+}
+
+@keyframes showBubble1 {
+	0% {
+		opacity: 100%;
+	}
+	
+	25% {
+		opacity: 100%
+	}
+	
+	26% {
+			opacity: 0%
+	}
+	
+	100% {
+			opacity: 0%
+	}
+}
+
+@keyframes showBubble2 {
+	0% {
+		opacity: 0%;
+	}
+	
+	26% {
+		opacity: 100%
+	}
+	
+	50% {
+			opacity: 100%
+	}
+	
+	51% {
+			opacity: 0%
+	}
+	
+	100% {
+			opacity: 0%
+	}
+}
+
+@keyframes showBubble3 {
+	0% {
+		opacity: 0%;
+	}
+	
+	50% {
+		opacity: 0;
+	}
+	
+	51% {
+		opacity: 100%
+	}
+	
+	75% {
+			opacity: 100%
+	}
+	
+	76% {
+			opacity: 0%
+	}
+	
+	100% {
+			opacity: 0%
+	}
+}
+
+@keyframes showBubble4 {
+	0% {
+		opacity: 0%;
+	}
+	
+	75% {
+			opacity: 0%
+	}
+	
+	76% {
+			opacity: 100%
+	}
+	
+	100% {
+			opacity: 100%
+	}
+}

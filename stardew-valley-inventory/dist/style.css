@@ -1,0 +1,620 @@
+:root {
+  --container_color: #ffc878;
+  --container_color2: #f8ba70;
+  --container_color3: #eba867;
+  --text_color: #331f28;
+  --text_shadow: #ce9c5f;
+  --tool_color: #2f4f4f;
+  --fruit_color: #ff1493;
+  --vegetable_color: #008000;
+  --flower_color: #db36d3;
+  --goods_color: #009b6f;
+  --seed_color: #a52a2a;
+  --mineral_color: #6e005a;
+  --resource_color: #406672;
+  --cooking_color: #dc3c00;
+  --crafting_color: #943d28;
+  --decoration_color: #6419be;
+  --fish_color: #00008b;
+  --wearable_color: #000;
+  --gradient-bg: linear-gradient(
+    180deg,
+    var(--container_color) 0%,
+    var(--container_color2) 50%,
+    var(--container_color3) 100%
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url("https://assets.codepen.io/7237686/cursor.gif"), auto;
+}
+
+@font-face {
+  font-family: svFont;
+  src: url(https://assets.codepen.io/7237686/rainyhearts.woff) format("woff");
+}
+@font-face {
+  font-family: pixelFont;
+  src: url(https://assets.codepen.io/7237686//pixelFont.woff) format("woff");
+}
+body {
+  background-image: url("https://assets.codepen.io/7237686/bg.png?format=auto");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: svFont;
+  color: var(--text_color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
+@media (max-width: 46.875rem) {
+  body {
+    padding: 1rem;
+  }
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--container_color);
+  border: none;
+  border-radius: 1.25rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+p,
+span {
+  user-select: none;
+}
+
+.disabled img {
+  pointer-events: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: #db7812;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ad520b;
+}
+
+.marquee {
+  z-index: -10;
+  position: fixed;
+  opacity: 0.8;
+  display: flex;
+  animation: marquee 150s linear infinite running;
+}
+.marquee .clouds {
+  width: 100%;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.menu {
+  width: 100%;
+  max-width: 60rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+@media (max-width: 65rem) {
+  .menu {
+    flex-direction: row;
+  }
+}
+.menu__tabs__container {
+  padding-left: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+@media (max-width: 65rem) {
+  .menu__tabs__container {
+    width: 5rem;
+    flex-direction: column;
+    padding-left: 0;
+    overflow: auto;
+  }
+}
+.menu__tabs__container .menu__tab {
+  border-image-source: url("https://assets.codepen.io/7237686/tab_border.png?format=auto");
+  border-style: solid;
+  border-width: 20px;
+  border-image-slice: 24 22;
+  border-image-repeat: round;
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1560px) {
+  .menu__tabs__container .menu__tab {
+    height: 4.5rem;
+  }
+}
+@media (max-width: 65rem) {
+  .menu__tabs__container .menu__tab {
+    border-image-source: url("https://assets.codepen.io/7237686/tab_border_side.png?format=auto");
+    width: 3.8rem;
+    height: 3.8rem;
+    justify-content: flex-start;
+  }
+}
+.menu__tabs__container .menu__tab--active {
+  height: 4.5rem;
+}
+@media (max-width: 1560px) {
+  .menu__tabs__container .menu__tab--active {
+    height: 4rem;
+  }
+}
+@media (max-width: 65rem) {
+  .menu__tabs__container .menu__tab--active {
+    width: 3.7rem;
+  }
+}
+.menu__tabs__container .menu__tab .menu__img {
+  height: 3.125rem;
+}
+@media (max-width: 1560px) {
+  .menu__tabs__container .menu__tab .menu__img {
+    height: 2.8rem;
+  }
+}
+@media (max-width: 65rem) {
+  .menu__tabs__container .menu__tab .menu__img {
+    height: 2.5rem;
+  }
+}
+.menu__tabs__container .menu__tab .tooltip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 120;
+  background-color: var(--container_color);
+  display: none;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: svFont;
+  color: var(--text_color);
+  text-shadow: var(--text_shadow) -2px 1px;
+  filter: drop-shadow(-0.4rem 0.4rem rgba(0, 0, 0, 0.3));
+  font-size: 2rem;
+  border-style: solid;
+  border-width: 20px;
+  border-image-slice: 24 22;
+  border-image-repeat: round;
+  border-radius: 20px;
+  border-image-source: url("https://assets.codepen.io/7237686/tooltipborder.png");
+}
+.menu__tabs__container .menu__tab:hover .tooltip {
+  display: inline-block;
+}
+@media (max-width: 65rem) {
+  .menu__tabs__container .menu__tab:hover .tooltip {
+    display: none;
+  }
+}
+.menu__content {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background: var(--gradient-bg);
+  border-radius: 28px;
+}
+.menu__content__inventory, .menu__content__info {
+  border-style: solid;
+  border-width: 20px;
+  border-image-slice: 24 22;
+  border-image-repeat: round;
+  border-radius: 20px;
+}
+@media (max-width: 65rem) {
+  .menu__content__inventory, .menu__content__info {
+    overflow: auto;
+  }
+}
+.menu__content__inventory .items__container,
+.menu__content__inventory .items__container--disabled, .menu__content__info .items__container,
+.menu__content__info .items__container--disabled {
+  border-style: solid;
+  border-width: 20px;
+  border-image-slice: 24 22;
+  border-image-repeat: round;
+  border-radius: 20px;
+  border-image-source: url("https://assets.codepen.io/7237686/itemsborder.png");
+  width: 74px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+@media (max-width: 1560px) {
+  .menu__content__inventory .items__container,
+.menu__content__inventory .items__container--disabled, .menu__content__info .items__container,
+.menu__content__info .items__container--disabled {
+    width: 64px;
+    height: 64px;
+  }
+}
+.menu__content__inventory .items__container .items__number,
+.menu__content__inventory .items__container--disabled .items__number, .menu__content__info .items__container .items__number,
+.menu__content__info .items__container--disabled .items__number {
+  font-size: 0.9rem;
+  position: absolute;
+  top: -35px;
+  left: 40%;
+  font-weight: 500;
+  color: #696969;
+  font-family: pixelFont;
+}
+.menu__content__inventory .items__container .items__number--first,
+.menu__content__inventory .items__container--disabled .items__number--first, .menu__content__info .items__container .items__number--first,
+.menu__content__info .items__container--disabled .items__number--first {
+  color: #ff0000;
+}
+.menu__content__inventory .items__container .item__container .item__img,
+.menu__content__inventory .items__container--disabled .item__container .item__img, .menu__content__info .items__container .item__container .item__img,
+.menu__content__info .items__container--disabled .item__container .item__img {
+  height: 70px;
+  width: 70px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transition: 0.2s all;
+}
+@media (max-width: 1560px) {
+  .menu__content__inventory .items__container .item__container .item__img,
+.menu__content__inventory .items__container--disabled .item__container .item__img, .menu__content__info .items__container .item__container .item__img,
+.menu__content__info .items__container--disabled .item__container .item__img {
+    height: 64px;
+    width: 64px;
+  }
+}
+.menu__content__inventory .items__container .item__container .item__img:hover,
+.menu__content__inventory .items__container--disabled .item__container .item__img:hover, .menu__content__info .items__container .item__container .item__img:hover,
+.menu__content__info .items__container--disabled .item__container .item__img:hover {
+  transform: scale(1.06);
+}
+.menu__content__inventory .items__container .item__container .item__img--small,
+.menu__content__inventory .items__container--disabled .item__container .item__img--small, .menu__content__info .items__container .item__container .item__img--small,
+.menu__content__info .items__container--disabled .item__container .item__img--small {
+  height: 40px;
+  width: 40px;
+}
+.menu__content__inventory .items__container .item__container .item__quantity,
+.menu__content__inventory .items__container--disabled .item__container .item__quantity, .menu__content__info .items__container .item__container .item__quantity,
+.menu__content__info .items__container--disabled .item__container .item__quantity {
+  color: #fff;
+  position: absolute;
+  bottom: -70%;
+  right: -60%;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
+  font-family: pixelFont;
+}
+@media (max-width: 1560px) {
+  .menu__content__inventory .items__container .item__container .item__quantity,
+.menu__content__inventory .items__container--disabled .item__container .item__quantity, .menu__content__info .items__container .item__container .item__quantity,
+.menu__content__info .items__container--disabled .item__container .item__quantity {
+    bottom: -100%;
+    right: -90%;
+  }
+}
+.menu__content__inventory .items__container .item__container .item__quality,
+.menu__content__inventory .items__container--disabled .item__container .item__quality, .menu__content__info .items__container .item__container .item__quality,
+.menu__content__info .items__container--disabled .item__container .item__quality {
+  position: absolute;
+  left: -60%;
+  bottom: -70%;
+}
+@media (max-width: 1560px) {
+  .menu__content__inventory .items__container .item__container .item__quality,
+.menu__content__inventory .items__container--disabled .item__container .item__quality, .menu__content__info .items__container .item__container .item__quality,
+.menu__content__info .items__container--disabled .item__container .item__quality {
+    bottom: -100%;
+    left: -90%;
+  }
+}
+.menu__content__inventory .items__container .item__container .item__quality img,
+.menu__content__inventory .items__container--disabled .item__container .item__quality img, .menu__content__info .items__container .item__container .item__quality img,
+.menu__content__info .items__container--disabled .item__container .item__quality img {
+  height: 1.5625rem;
+}
+.menu__content__inventory .items__container .item__container .item__tooltip,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip, .menu__content__info .items__container .item__container .item__tooltip,
+.menu__content__info .items__container--disabled .item__container .item__tooltip {
+  display: none;
+  position: absolute;
+  left: 3.125rem;
+  top: 0;
+  z-index: 89999;
+  min-width: 22rem;
+  border-radius: 1.125rem;
+  filter: drop-shadow(-0.6rem 0.6rem rgba(0, 0, 0, 0.3));
+  color: #221122;
+  background-color: var(--container_color);
+}
+@media (max-width: 1560px) {
+  .menu__content__inventory .items__container .item__container .item__tooltip,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip, .menu__content__info .items__container .item__container .item__tooltip,
+.menu__content__info .items__container--disabled .item__container .item__tooltip {
+    min-width: 18rem;
+  }
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title {
+  border-style: solid;
+  border-width: 20px;
+  border-image-slice: 24 22;
+  border-image-repeat: round;
+  border-radius: 20px;
+  border-image-source: url("https://assets.codepen.io/7237686/tooltipbordertop.png");
+  text-shadow: var(--text_shadow) -2px 1px;
+  white-space: nowrap;
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title h2,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title h2, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title h2,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title h2 {
+  font-size: 3rem;
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category {
+  font-size: 2.5rem;
+  text-shadow: var(--text_shadow) 2px 1px;
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--tool,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--tool, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--tool,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--tool {
+  color: var(--tool_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--fruit,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--fruit, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--fruit,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--fruit {
+  color: var(--fruit_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--vegetable,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--vegetable, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--vegetable,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--vegetable {
+  color: var(--vegetable_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--flower,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--flower, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--flower,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--flower {
+  color: var(--flower_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--goods,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--goods, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--goods,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--goods {
+  color: var(--goods_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--seed,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--seed, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--seed,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--seed {
+  color: var(--seed_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--mineral,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--mineral, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--mineral,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--mineral {
+  color: var(--mineral_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--resource,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--resource, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--resource,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--resource {
+  color: var(--resource_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--cooking,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--cooking, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--cooking,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--cooking {
+  color: var(--cooking_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--crafting,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--crafting, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--crafting,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--crafting {
+  color: var(--crafting_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--decoration,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--decoration, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--decoration,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--decoration {
+  color: var(--decoration_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--fish,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--fish, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--fish,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--fish {
+  color: var(--fish_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--wearable,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--wearable, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--wearable,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__title .item__tooltip__category--wearable {
+  color: var(--wearable_color);
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__info,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__info, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__info,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__info {
+  border-style: solid;
+  border-width: 20px;
+  border-image-slice: 24 22;
+  border-image-repeat: round;
+  border-radius: 20px;
+  border-image-source: url("https://assets.codepen.io/7237686/tooltipborderbottom.png");
+  font-size: 2rem;
+  text-shadow: var(--text_shadow) -2px 1px;
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__info ul,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__info ul, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__info ul,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__info ul {
+  margin-bottom: 1.25rem;
+  list-style: none;
+  margin-top: 10px;
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__info ul li,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__info ul li, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__info ul li,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__info ul li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.menu__content__inventory .items__container .item__container .item__tooltip .item__tooltip__info ul li img,
+.menu__content__inventory .items__container--disabled .item__container .item__tooltip .item__tooltip__info ul li img, .menu__content__info .items__container .item__container .item__tooltip .item__tooltip__info ul li img,
+.menu__content__info .items__container--disabled .item__container .item__tooltip .item__tooltip__info ul li img {
+  height: 40px;
+}
+.menu__content__inventory .items__container .item__container:hover .item__tooltip,
+.menu__content__inventory .items__container--disabled .item__container:hover .item__tooltip, .menu__content__info .items__container .item__container:hover .item__tooltip,
+.menu__content__info .items__container--disabled .item__container:hover .item__tooltip {
+  display: block;
+}
+@media (max-width: 46.875rem) {
+  .menu__content__inventory .items__container .item__container:hover .item__tooltip,
+.menu__content__inventory .items__container--disabled .item__container:hover .item__tooltip, .menu__content__info .items__container .item__container:hover .item__tooltip,
+.menu__content__info .items__container--disabled .item__container:hover .item__tooltip {
+    display: none;
+  }
+}
+.menu__content__inventory .items__container .item__container:active .item__tooltip,
+.menu__content__inventory .items__container--disabled .item__container:active .item__tooltip, .menu__content__info .items__container .item__container:active .item__tooltip,
+.menu__content__info .items__container--disabled .item__container:active .item__tooltip {
+  display: none;
+}
+.menu__content__inventory {
+  border-image-source: url("https://assets.codepen.io/7237686/bordertop.png");
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.menu__content__inventory .inventory--hotbar,
+.menu__content__inventory .inventory--rows {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  row-gap: 0.3125rem;
+}
+.menu__content__inventory .inventory--hotbar {
+  row-gap: 1rem;
+}
+.menu__content__info {
+  border-image-source: url("https://assets.codepen.io/7237686/borderbottom.png");
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+@media (max-width: 65rem) {
+  .menu__content__info {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.menu__content__info .player__info__container .player__container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.menu__content__info .player__info__container .player__container .avatar {
+  position: relative;
+}
+.menu__content__info .player__info__container .player__container .avatar img {
+  width: 9.375rem;
+}
+@media (max-width: 1560px) {
+  .menu__content__info .player__info__container .player__container .avatar img {
+    width: 8.125rem;
+  }
+}
+.menu__content__info .player__info__container .player__container .avatar .avatar__level {
+  position: absolute;
+  right: -120px;
+  bottom: 0;
+  z-index: 120;
+  background-color: var(--container_color);
+  display: none;
+  width: 150px;
+  color: var(--text_color);
+  text-shadow: var(--text_shadow) -2px 1px;
+  filter: drop-shadow(-0.4rem 0.4rem rgba(0, 0, 0, 0.3));
+  font-size: 1.8rem;
+  line-height: 0.8;
+  border-style: solid;
+  border-width: 20px;
+  border-image-slice: 24 22;
+  border-image-repeat: round;
+  border-radius: 20px;
+  border-image-source: url("https://assets.codepen.io/7237686/tooltipborder.png");
+}
+.menu__content__info .player__info__container .player__container .avatar:hover .avatar__level {
+  display: inline-block;
+}
+.menu__content__info .player__info__container .player__name {
+  font-size: 3rem;
+  text-align: center;
+}
+.menu__content__info .info__farm__container {
+  padding: 1rem;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 2rem;
+  text-shadow: var(--text_shadow) -2px 1px;
+}
+@media (max-width: 65rem) {
+  .menu__content__info .info__farm__container {
+    font-size: 1.2rem;
+  }
+}
+.menu__content__info .info__farm__container .farm__funds,
+.menu__content__info .info__farm__container .farm__earnings {
+  line-height: 1;
+  font-size: 3rem;
+}
+@media (max-width: 65rem) {
+  .menu__content__info .info__farm__container .farm__funds,
+.menu__content__info .info__farm__container .farm__earnings {
+    font-size: 2rem;
+  }
+}
+.menu__content__info .info__farm__container .pets {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  margin-left: 2.5rem;
+}
+@media (max-width: 65rem) {
+  .menu__content__info .info__farm__container .pets {
+    flex-direction: column;
+  }
+}
+.menu__content__info .info__farm__container .pets__info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu__content__info .info__farm__container .pets__info img {
+  height: 50px;
+}
